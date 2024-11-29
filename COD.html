@@ -47,31 +47,30 @@
   <div class="form">
     <h3>Adicione seu nome e e-mail para conhecer mais sobre nossos serviços:</h3>
     <form id="emailForm">
-      <input type="text" id="name" placeholder="Nome" required>
-      <input type="email" id="email" placeholder="Email" required>
+      <input type="text" id="name" name="Name" placeholder="Digite seu nome" required>
+      <input type="email" id="email" name="Email" placeholder="Digite seu email" required>
+      <input type="hidden" name="Created" value="x-sheetmonkey-current-date-time">
       <button type="submit">Enviar</button>
     </form>
   </div>
 
   <script>
-    const scriptURL = 'https://script.google.com/macros/s/AKfycbyMKivCD7zDfUi6kQSx32n1bUSViWj4CCK-POc1pPfr0FZlrH6DuD7-OQiBAY0bB7c/exec'; // Substitua pelo URL gerado no Apps Script
+    const scriptURL = 'https://api.sheetmonkey.io/form/jNCz9f2rR4ZwUFsTuuYxhT'; // Substitua pelo seu endpoint do Sheet Monkey
 
     document.getElementById('emailForm').addEventListener('submit', async (e) => {
       e.preventDefault();
 
-      const name = document.getElementById('name').value;
-      const email = document.getElementById('email').value;
+      const formData = new FormData(e.target);
 
       try {
         const response = await fetch(scriptURL, {
           method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ name, email }),
+          body: formData,
         });
 
         if (response.ok) {
           alert('Dados enviados com sucesso!');
-          document.getElementById('emailForm').reset();
+          e.target.reset();
         } else {
           alert('Erro ao enviar os dados.');
         }
@@ -81,5 +80,6 @@
       }
     });
   </script>
+
 </body>
 </html>
