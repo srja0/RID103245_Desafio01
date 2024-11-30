@@ -15,12 +15,12 @@ body {
   }
   
   .cabecalho h1 {
-    font-size: 48px;
+    font-size: 36px; /* Ajustado para telas menores */
     margin-bottom: 16px;
   }
   
   .cabecalho p {
-    font-size: 20px;
+    font-size: 18px; /* Ajustado para melhor legibilidade */
     color: #ddd;
   }
   
@@ -32,20 +32,23 @@ body {
     padding: 32px 16px;
     background-color: #f9f9f9;
     text-align: center;
+    gap: 16px;
+    flex-wrap: wrap; /* Ajusta para empilhar os itens em telas pequenas */
   }
   
   .destaques div {
-    margin: 0 20px;
+    flex: 1;
+    margin: 8px;
   }
   
   .destaques h2 {
-    font-size: 36px;
+    font-size: 28px; /* Reduzido para celulares */
     color: #333;
     margin-bottom: 8px;
   }
   
   .destaques p {
-    font-size: 16px;
+    font-size: 14px; /* Ajustado para dispositivos móveis */
     color: #555;
   }
   
@@ -56,21 +59,23 @@ body {
     justify-content: space-between;
     padding: 32px;
     background-color: #fff;
-    flex-wrap: wrap;
+    flex-wrap: wrap; /* Empilhar conteúdo em telas pequenas */
+    gap: 16px;
   }
   
   .descricao .texto {
+    flex: 1;
     max-width: 600px;
   }
   
   .descricao h2 {
-    font-size: 32px;
+    font-size: 28px; /* Ajustado para melhor visualização em celulares */
     color: #333;
     margin-bottom: 16px;
   }
   
   .descricao p {
-    font-size: 16px;
+    font-size: 14px; /* Ajustado para telas menores */
     color: #555;
     line-height: 1.6;
   }
@@ -90,7 +95,7 @@ body {
   }
   
   .formulario h3 {
-    font-size: 24px;
+    font-size: 20px; /* Ajustado para dispositivos móveis */
     margin-bottom: 16px;
   }
   
@@ -129,13 +134,75 @@ body {
   
   /* Responsividade */
   @media (max-width: 768px) {
-    .destaques {
-      flex-direction: column;
+    /* Ajustes para tablets e celulares */
+    .cabecalho h1 {
+      font-size: 28px; /* Menor para telas pequenas */
+    }
+  
+    .cabecalho p {
+      font-size: 16px;
     }
   
     .descricao {
       flex-direction: column;
       text-align: center;
+    }
+  
+    .descricao .texto {
+      margin-bottom: 16px;
+    }
+  
+    .destaques {
+      flex-direction: column; /* Empilha os destaques */
+    }
+  
+    .destaques h2 {
+      font-size: 24px; /* Reduzido */
+    }
+  
+    .destaques p {
+      font-size: 14px;
+    }
+  
+    .formulario h3 {
+      font-size: 18px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    /* Ajustes específicos para celulares menores */
+    .cabecalho h1 {
+      font-size: 24px;
+    }
+  
+    .cabecalho p {
+      font-size: 14px;
+    }
+  
+    .formulario input {
+      font-size: 14px;
+      padding: 10px;
+    }
+  
+    .formulario button {
+      font-size: 14px;
+      padding: 10px 20px;
+    }
+  
+    .descricao h2 {
+      font-size: 24px;
+    }
+  
+    .descricao p {
+      font-size: 12px;
+    }
+  
+    .destaques h2 {
+      font-size: 20px;
+    }
+  
+    .destaques p {
+      font-size: 12px;
     }
   }
   
